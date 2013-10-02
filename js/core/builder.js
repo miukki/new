@@ -57,8 +57,6 @@
 		
 		_menuBuild();
 		_menuSet(id);
-		_renderHeader();
-		_renderFooter();
 		
 		name = APP.router.getName('ctl');
 		if (ctl) {
@@ -83,43 +81,6 @@
 		};
 	};
 	
-	var _renderHeader = function () {
-		self.renderUser(APP.user);
-	};
-	
-	self.renderUser = function (user) {
-		if (!user) {
-			return;
-		};
-		$('#headerUser').html($.tmpl('layout/user', user));
-		
-		var logout = $('#logout');
-		if (logout.length) {
-			APP.util.click($('#logout'), function () {
-				APP.request.ajax({
-					'url': APP.URL.user.logout,
-					'success': function () { location.reload(); }
-				});
-			});			
-		};
-	};
-	
-	var _renderFooter = function () {
-		var footer = $('#footer');
-		var lang = footer.find('.lang');
-		
-		APP.util.click(lang.find('.item'), function () {
-			var id = $(this).data('id');
-			var ctl = APP.router.state.controller;
-			var route = APP.router.route;
-			if (ctl == 'talk') {
-				route = APP.ROUTE.talk.index;
-			};
-
-			location.href = route + '?lang=' + id;
-		});
-	};
-	
 	var _menuSet = function (id) {
 		var obj = $('#menu-' + id);
 		if (!obj.length) {
@@ -142,8 +103,6 @@
 	};
 	
 	self.clear = function (param) {
-		APP.popup.close();
-		
 		for (var i in APP.ctl) {
 			var ctl = APP.ctl[i];
 			if (ctl && ctl.clear) {
@@ -152,27 +111,4 @@
 		};
 	};
 	
-	self.buildForm = function (id, obj, data) {
-		if (!obj.length) {
-			return;
-		};
-		
-		if (!id || ($.inArray(id, APP.data.templates) < 0)) {
-			id = 'layout/form/default';
-		};
-		
-		return obj.form(data).buildCustom(id);
-	};
-	
-	self.renderStandalone = function () {
-		$('#header').hide();
-		$('#footer').hide();
-	};
-	
-	self.getEditorUrl = function (item) {
-		item.href = location.protocol + '//editor.' + APP.cfg.domain;
-		item.target = 'blank';
-		return item;
-	};
-
 })();
