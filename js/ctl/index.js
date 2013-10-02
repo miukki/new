@@ -4,7 +4,11 @@
 	self.layoutName = 'index';
 	
 	self.index = function () {
-	    console.log('APP.ctl.index.index');
+	    console.log('index ctl js');
+	};
+	
+	self.clear = function () {
+		clearInterval(0);
 	};
 	
 })();

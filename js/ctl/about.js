@@ -4,7 +4,7 @@
 	self.obj = null;
 	
 	self.index = function () {
-        console.log('APP.ctl.about.index');
+        console.log('about ctl js');
 	};
 	
 })();

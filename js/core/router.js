@@ -21,6 +21,25 @@
 		};
 		
 		APP.builder.build();
+		
+		History.Adapter.bind(window, 'statechange', function() {
+            var state = History.getState();
+            var url = APP.urlFull('');
+            self.route = state.cleanUrl.replace(url, '');
+    		self.getState(self.route);
+    		
+            if (!self.noRebuild) {
+                APP.builder.clear();
+                APP.builder.build(self.param);
+            };
+            
+    		if (self.callback) {
+    			self.callback();
+    			self.callback = null;
+    		};
+    		
+    		self.noRebuild = false;
+        });
 	};
 	
 	self.getState = function (route) {
@@ -30,7 +49,7 @@
 	
 	self.go = function (route, callback, param) {
 		route = (undefined != route) ? String(route) : '';
-		self.param = $.extend({ 'animate': true }, param);
+		self.param = $.extend({ 'animate': false }, param);
 		
 		if (callback) {
 			self.callback = callback;
@@ -40,6 +59,10 @@
 		self.route = APP.cst.ROUTE_PREFIX + route.replace(new RegExp(APP.cst.ROUTE_PREFIX, 'g'), '');
 		History.pushState({}, title, self.route);
 		self.getState(self.route);
+	};
+	
+	self.back = function () {
+		History.back();
 	};
 	
 	self.request = function (source) {
