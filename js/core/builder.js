@@ -11,12 +11,7 @@
 	
 	self.build = function (param) {
 		param = $.extend({ 'animate': false }, param);
-		
-		var content = $('#content');
-		if (!content.length) {
-			_contentBuild();
-			return;
-		};
+		_contentBuild();
 	};
 	
 	var _contentBuild = function () {
