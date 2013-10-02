@@ -1,0 +1,8 @@
+.over { overflow:hidden; *zoom:1; }
+.fll { float:left; }
+.flr { float:right; }
+.flow-x { width:100% !important; }
+.flow-y { height:100% !important; }
+.size1of2 { width:50%; }
+.size1of3 { width:33.33333%; }
+.size2of3 { width:66.66666%; }

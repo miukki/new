@@ -1,0 +1,23 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { margin: 0; padding: 0;}
+::-moz-selection { background: none; text-shadow: none; }
+::selection { background: none; text-shadow: none; }
+body { font-size: 100%; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+b, strong { font-weight: bold; }
+ul, ol { margin: 0; padding: 0; list-style-type:none; }
+li { display: inline-block; *display: inline; }
+img { border: 0; vertical-align: middle; -ms-interpolation-mode: bicubic; }
+
+.ir { border: 0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+.rel {position: relative;}
+.abs {position: absolute;}
+.v-middle {display:table-cell;*display:block;width:auto;vertical-align:middle;}
+.cp {cursor:pointer;}
+.x-flow { width: 100%; }
+.hidden { display: none; }

@@ -1,0 +1,6 @@
+::-webkit-input-placeholder  { color:#444; }
+:-moz-placeholder { color:#444; }
+select, input, button, textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
